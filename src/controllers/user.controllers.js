@@ -29,21 +29,25 @@ const remove = catchError (async(req, res) => {
     return res.sendStatus(204);
 });
 
-const update = catchError(async(req, res) => {
+const upDate = catchError(async(req, res) => {
     const { id } = req.params;
-    const {first_name, last_name, email, password, birthday} = req.body;
+    const { first_name, last_name, email, password, birthday  } = req.body;
     const user = await User.update(
-        {first_name, last_name, email, password, birthday},
+        { first_name,
+        last_name,
+    email,
+password, birthday},
         {where: { id }, returning: true}
     );
-    return res.json(user)
-    
+    return res.json(user);
 })
+
+
 
 module.exports = {
     getAll,
     create,
     getOne,
     remove,
-    update
+    upDate
 }
