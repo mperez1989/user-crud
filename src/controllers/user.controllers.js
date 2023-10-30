@@ -39,7 +39,7 @@ const upDate = catchError(async(req, res) => {
 password, birthday},
         {where: { id }, returning: true}
     );
-    return res.json(user);
+    return res.json(user[1][0]);
 })
 
 
